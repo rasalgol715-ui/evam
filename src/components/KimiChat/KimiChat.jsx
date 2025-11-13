@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import './KimiChat.css';
 
 export default function KimiChat() {
@@ -26,30 +26,17 @@ export default function KimiChat() {
       const {done, value} = await reader.read();
       if (done) break;
       answer += decoder.decode(value, {stream:true});
-      setMsgs(m => {
-        const tmp = [...m];
-        tmp[tmp.length-1].content = answer;
-        return tmp;
-      });
+      setMsgs(m => { const tmp=[...m]; tmp[tmp.length-1].content=answer; return tmp; });
     }
   };
 
   return (
     <div className="kimi-box">
       <div className="kimi-msgs">
-        {msgs.map((m,i) => (
-          <div key={i} className={`msg ${m.role}`}>
-            <span>{m.content}</span>
-          </div>
-        ))}
+        {msgs.map((m,i) => <div key={i} className={`msg ${m.role}`}><span>{m.content}</span></div>)}
       </div>
       <div className="kimi-input">
-        <input
-          value={input}
-          onChange={e => setInput(e.target.value)}
-          onKeyDown={e => e.key==='Enter' && send()}
-          placeholder="Tape ton message…"
-        />
+        <input value={input} onChange={e=>setInput(e.target.value)} onKeyDown={e=>e.key==='Enter'&&send()} placeholder="Tape ton message…"/>
         <button onClick={send}>Envoyer</button>
       </div>
     </div>
