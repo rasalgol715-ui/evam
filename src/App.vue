@@ -1,9 +1,7 @@
 <script setup>
-// 1. Header
+import KimiChat from './components/KimiChat/KimiChat.vue'
 import AppHeader from '@/components/AppHeader.vue'
-// 2. Footer
 import AppFooter from '@/components/AppFooter.vue'
-// 3. Router
 import { RouterView } from 'vue-router'
 </script>
 
@@ -11,7 +9,7 @@ import { RouterView } from 'vue-router'
   <AppHeader />
   <RouterView />
   <AppFooter />
-  <ChatAgent />
+  <KimiChat />
 </template>
 
 <style scoped>
