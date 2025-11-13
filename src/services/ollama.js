@@ -7,8 +7,8 @@ export async function askLlama(prompt, maxTokens = 220) {
       model: 'llama3.2:3b',
       prompt,
       stream: false,
-      options: { temperature: 0.7, num_predict: maxTokens }
-    })
+      options: { temperature: 0.7, num_predict: maxTokens },
+    }),
   })
   if (!res.ok) throw new Error('Ollama injoignable')
   const data = await res.json()

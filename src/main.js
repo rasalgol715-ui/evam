@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 
 // AJOUTEZ CETTE LIGNE
-import './assets/main.css'  // <-- Cela charge votre CSS global
+import './assets/main.css' // <-- Cela charge votre CSS global
 
 const app = createApp(App)
 

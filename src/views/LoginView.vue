@@ -1,35 +1,30 @@
 <template>
   <div class="login-page">
     <div class="login-container">
-
-      <img src="/images/evam logo.png" alt="Logo EvaM Group" class="login-logo">
+      <img src="/images/evam logo.png" alt="Logo EvaM Group" class="login-logo" />
       <h2>Connexion à votre espace</h2>
       <p>Accédez à vos cours et suivez votre progression.</p>
 
       <form @submit.prevent="handleLogin" class="login-form">
-
         <div class="form-group">
           <label for="email">Adresse Email</label>
-          <input type="email" id="email" v-model="email" placeholder="exemple@gmail.com" required>
+          <input type="email" id="email" v-model="email" placeholder="exemple@gmail.com" required />
         </div>
 
         <div class="form-group">
           <label for="password">Mot de passe</label>
-          <input type="password" id="password" v-model="password" placeholder="••••••••" required>
+          <input type="password" id="password" v-model="password" placeholder="••••••••" required />
         </div>
 
         <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
 
-        <button type="submit" class="btn-submit-login">
-          Se connecter
-        </button>
+        <button type="submit" class="btn-submit-login">Se connecter</button>
       </form>
 
       <div class="login-footer">
         <a href="#">Mot de passe oublié ?</a>
         <p>Pas encore de compte ? <a href="#">Créez-en un</a></p>
       </div>
-
     </div>
   </div>
 </template>
@@ -123,7 +118,7 @@ const handleLogin = () => {
 }
 
 .error-message {
-  color: #D32F2F; /* Rouge erreur */
+  color: #d32f2f; /* Rouge erreur */
   font-size: 0.9rem;
   text-align: center;
   margin: 0;

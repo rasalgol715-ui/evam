@@ -1,9 +1,7 @@
 <template>
   <div class="page-view">
     <h1 class="page-title">Académie IA EvaM</h1>
-    <p class="page-intro">
-      Ne suivez pas un cours. Visez un métier d'avenir au Sénégal.
-    </p>
+    <p class="page-intro">Ne suivez pas un cours. Visez un métier d'avenir au Sénégal.</p>
 
     <!-- J'utilise le même panneau de contrôle que TerminaleView -->
     <div class="controls-panel">
@@ -31,7 +29,9 @@
           @click="toggleModule(module)"
         >
           <div class="module-info">
-            <span class="subject-tag" :style="{ backgroundColor: module.color }">{{ module.subject }}</span>
+            <span class="subject-tag" :style="{ backgroundColor: module.color }">{{
+              module.subject
+            }}</span>
             <h3>{{ module.title }}</h3>
           </div>
           <i class="fas fa-chevron-down module-icon"></i>
@@ -61,18 +61,21 @@
     </div>
 
     <!-- Section Témoignages (style de EtudiantsView) -->
-     <section class="testimonials">
+    <section class="testimonials">
       <h2>Ils préparent leur futur avec nous</h2>
       <div class="testimonial-grid">
         <div v-for="testimonial in testimonials" :key="testimonial.name" class="testimonial-card">
-          <img :src="testimonial.imageUrl" :alt="'Photo de ' + testimonial.name" class="testimonial-photo">
+          <img
+            :src="testimonial.imageUrl"
+            :alt="'Photo de ' + testimonial.name"
+            class="testimonial-photo"
+          />
           <p class="testimonial-quote">"{{ testimonial.quote }}"</p>
           <h4 class="testimonial-name">{{ testimonial.name }}</h4>
           <span class="testimonial-class">{{ testimonial.class }}</span>
         </div>
       </div>
     </section>
-
   </div>
 </template>
 
@@ -87,7 +90,7 @@ const { getModulesByLevel } = useCourses()
 const modulesIA = ref(getModulesByLevel('Académie IA'))
 
 // --- Logique d'interactivité (copiée de TerminaleView) ---
-const searchText = ref('');
+const searchText = ref('')
 
 const toggleModule = (module) => {
   module.isOpen = !module.isOpen
@@ -95,41 +98,45 @@ const toggleModule = (module) => {
 
 // Ouvre le premier module par défaut
 if (modulesIA.value.length > 0) {
-  modulesIA.value[0].isOpen = true;
+  modulesIA.value[0].isOpen = true
 }
 
 const filteredModules = computed(() => {
-  const query = searchText.value.toLowerCase().trim();
+  const query = searchText.value.toLowerCase().trim()
   if (!query) {
-    return modulesIA.value; // Retourne tout si la recherche est vide
+    return modulesIA.value // Retourne tout si la recherche est vide
   }
-  return modulesIA.value.filter(module => {
-    const textMatch = module.title.toLowerCase().includes(query) ||
-                      module.chapters.some(chapter => chapter.toLowerCase().includes(query));
-    return textMatch;
-  });
-});
+  return modulesIA.value.filter((module) => {
+    const textMatch =
+      module.title.toLowerCase().includes(query) ||
+      module.chapters.some((chapter) => chapter.toLowerCase().includes(query))
+    return textMatch
+  })
+})
 
 // Données pour les témoignages
 const testimonials = ref([
   {
-    name: "Fatou K.",
-    class: "Étudiante en Marketing, UCAD",
-    quote: "Je pensais que l'IA était trop compliquée. Le parcours 'Ingénieur Prompt' m'a montré comment l'utiliser concrètement. Je crée des contenus incroyables maintenant !",
-    imageUrl: "https://placehold.co/100x100/e0e7ff/3730a3?text=FK" // Placeholder
+    name: 'Fatou K.',
+    class: 'Étudiante en Marketing, UCAD',
+    quote:
+      "Je pensais que l'IA était trop compliquée. Le parcours 'Ingénieur Prompt' m'a montré comment l'utiliser concrètement. Je crée des contenus incroyables maintenant !",
+    imageUrl: 'https://placehold.co/100x100/e0e7ff/3730a3?text=FK', // Placeholder
   },
   {
-    name: "Mamadou D.",
-    class: "Développeur Web, Dakar",
-    quote: "J'étais développeur web, mais je voulais passer à l'IA. Le parcours 'Développeur IA' m'a donné les compétences en Machine Learning pour décrocher un nouveau job.",
-    imageUrl: "https://placehold.co/100x100/d1fae5/047857?text=MD" // Placeholder
+    name: 'Mamadou D.',
+    class: 'Développeur Web, Dakar',
+    quote:
+      "J'étais développeur web, mais je voulais passer à l'IA. Le parcours 'Développeur IA' m'a donné les compétences en Machine Learning pour décrocher un nouveau job.",
+    imageUrl: 'https://placehold.co/100x100/d1fae5/047857?text=MD', // Placeholder
   },
   {
-    name: "Aïssatou N.",
-    class: "Étudiante en Économie, ESP",
-    quote: "Le parcours 'Data Analyst IA' est très pratique. Les projets sur des données locales m'ont aidé à comprendre et à trouver un stage dans une banque.",
-    imageUrl: "https://placehold.co/100x100/fef3c7/92400e?text=AN" // Placeholder
-  }
+    name: 'Aïssatou N.',
+    class: 'Étudiante en Économie, ESP',
+    quote:
+      "Le parcours 'Data Analyst IA' est très pratique. Les projets sur des données locales m'ont aidé à comprendre et à trouver un stage dans une banque.",
+    imageUrl: 'https://placehold.co/100x100/fef3c7/92400e?text=AN', // Placeholder
+  },
 ])
 </script>
 
@@ -330,6 +337,4 @@ const testimonials = ref([
   font-size: 0.9rem;
   color: var(--pink); /* Couleur rose clair */
 }
-
-
 </style>

@@ -1,7 +1,6 @@
 <template>
   <div class="contact-page">
     <div class="contact-container">
-
       <div class="section-title-container">
         <i class="fas fa-paper-plane"></i>
         <h2>Contactez-nous</h2>
@@ -12,26 +11,30 @@
         <form v-if="!contactFormSubmitted" @submit.prevent="handleContact" class="contact-form">
           <div class="form-group">
             <label for="contact-nom">Votre Nom</label>
-            <input type="text" id="contact-nom" v-model="contactForm.nom" required>
+            <input type="text" id="contact-nom" v-model="contactForm.nom" required />
           </div>
           <div class="form-group">
             <label for="contact-email">Votre Email</label>
-            <input type="email" id="contact-email" v-model="contactForm.email" required>
+            <input type="email" id="contact-email" v-model="contactForm.email" required />
           </div>
           <div class="form-group">
             <label for="contact-message">Votre Message</label>
-            <textarea id="contact-message" v-model="contactForm.message" rows="6" required></textarea>
+            <textarea
+              id="contact-message"
+              v-model="contactForm.message"
+              rows="6"
+              required
+            ></textarea>
           </div>
-          <button type="submit" class="btn-submit-contact">
-            Envoyer le message
-          </button>
+          <button type="submit" class="btn-submit-contact">Envoyer le message</button>
         </form>
 
         <div v-if="contactFormSubmitted" class="success-message">
           <h3>Message envoyé !</h3>
           <p>
-            Merci, <strong>{{ contactForm.nom }}</strong>. Nous avons bien reçu votre message et
-            nous vous répondrons sur <strong>{{ contactForm.email }}</strong> dans les plus brefs délais.
+            Merci, <strong>{{ contactForm.nom }}</strong
+            >. Nous avons bien reçu votre message et nous vous répondrons sur
+            <strong>{{ contactForm.email }}</strong> dans les plus brefs délais.
           </p>
         </div>
       </div>
@@ -40,21 +43,40 @@
         <h3>Suivez notre communauté</h3>
         <p>Restez connecté à EvaM Group sur vos plateformes préférées.</p>
         <div class="social-icon-list">
-          <a href="https://tiktok.com" target="_blank" class="social-icon-link tiktok" aria-label="TikTok">
+          <a
+            href="https://tiktok.com"
+            target="_blank"
+            class="social-icon-link tiktok"
+            aria-label="TikTok"
+          >
             <i class="fab fa-tiktok"></i>
           </a>
-          <a href="https://instagram.com" target="_blank" class="social-icon-link instagram" aria-label="Instagram">
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            class="social-icon-link instagram"
+            aria-label="Instagram"
+          >
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="https://facebook.com" target="_blank" class="social-icon-link facebook" aria-label="Facebook">
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            class="social-icon-link facebook"
+            aria-label="Facebook"
+          >
             <i class="fab fa-facebook-f"></i>
           </a>
-          <a href="https://wa.me/221775632268" target="_blank" class="social-icon-link whatsapp" aria-label="WhatsApp">
+          <a
+            href="https://wa.me/221775632268"
+            target="_blank"
+            class="social-icon-link whatsapp"
+            aria-label="WhatsApp"
+          >
             <i class="fab fa-whatsapp"></i>
           </a>
         </div>
       </div>
-
     </div>
   </div>
 </template>
@@ -72,7 +94,7 @@ const EMAILJS_PUBLIC_KEY = 'kSSYiauK7yBL9LRZV'
 const contactForm = ref({
   nom: '',
   email: '',
-  message: ''
+  message: '',
 })
 const contactFormSubmitted = ref(false)
 
@@ -81,21 +103,25 @@ const handleContact = () => {
     nom: contactForm.value.nom,
     email: contactForm.value.email,
     message: contactForm.value.message,
-  };
+  }
 
-  emailjs.send(
-    EMAILJS_SERVICE_ID,
-    EMAILJS_TEMPLATE_CONTACT, // <-- Utilise la variable corrigée
-    templateParams,
-    EMAILJS_PUBLIC_KEY
-  )
-  .then((response) => {
-     console.log('Email envoyé avec succès !', response.status, response.text);
-     contactFormSubmitted.value = true // Affiche le message de succès
-  }, (err) => {
-     console.error('Échec de l\'envoi...', err);
-     alert("Une erreur est survenue. Veuillez vérifier vos informations ou réessayer plus tard.");
-  });
+  emailjs
+    .send(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_CONTACT, // <-- Utilise la variable corrigée
+      templateParams,
+      EMAILJS_PUBLIC_KEY,
+    )
+    .then(
+      (response) => {
+        console.log('Email envoyé avec succès !', response.status, response.text)
+        contactFormSubmitted.value = true // Affiche le message de succès
+      },
+      (err) => {
+        console.error("Échec de l'envoi...", err)
+        alert('Une erreur est survenue. Veuillez vérifier vos informations ou réessayer plus tard.')
+      },
+    )
 }
 </script>
 
@@ -236,14 +262,22 @@ const handleContact = () => {
   font-size: 1.8rem;
   color: #fff;
   transition: var(--transition);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 .social-icon-link:hover {
   transform: translateY(-5px) scale(1.05);
   box-shadow: var(--shadow);
 }
-.social-icon-link.tiktok { background-color: #000; }
-.social-icon-link.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
-.social-icon-link.facebook { background-color: #1877F2; }
-.social-icon-link.whatsapp { background-color: #25D366; }
+.social-icon-link.tiktok {
+  background-color: #000;
+}
+.social-icon-link.instagram {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+.social-icon-link.facebook {
+  background-color: #1877f2;
+}
+.social-icon-link.whatsapp {
+  background-color: #25d366;
+}
 </style>

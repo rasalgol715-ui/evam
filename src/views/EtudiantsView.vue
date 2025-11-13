@@ -8,7 +8,6 @@
     <section class="students-benefits">
       <h2>Vos Avantages EvaM Group</h2>
       <div class="student-benefits-grid">
-
         <div class="benefit">
           <i class="fas fa-tags"></i>
           <h3>Réductions spéciales</h3>
@@ -22,54 +21,47 @@
           <i class="fas fa-headset"></i>
           <h3>Support Prioritaire</h3>
           <p>Posez vos questions et obtenez des réponses rapides de nos professeurs.</p>
-          <RouterLink to="/contact" class="btn-benefit">
-            Poser une question
-          </RouterLink>
+          <RouterLink to="/contact" class="btn-benefit"> Poser une question </RouterLink>
         </div>
 
         <div class="benefit">
           <i class="fab fa-whatsapp"></i>
           <h3>Communauté active</h3>
           <p>Rejoignez nos groupes de discussion et d'entraide sur WhatsApp et nos réseaux.</p>
-          <RouterLink to="/contact" class="btn-benefit">
-            Nous rejoindre
-          </RouterLink>
+          <RouterLink to="/contact" class="btn-benefit"> Nous rejoindre </RouterLink>
         </div>
 
         <div class="benefit">
           <i class="fas fa-clock"></i>
           <h3>Accès illimité 24/7</h3>
           <p>Accédez à vos vidéos de cours à tout moment, où que vous soyez.</p>
-          <RouterLink to="/login" class="btn-benefit">
-            Se connecter
-          </RouterLink>
+          <RouterLink to="/login" class="btn-benefit"> Se connecter </RouterLink>
         </div>
 
         <div class="benefit">
           <i class="fas fa-eye"></i>
           <h3>Aperçus Gratuits</h3>
           <p>Prévisualisez gratuitement le contenu de nos fascicules avant de commander.</p>
-          <RouterLink to="/#preview-fascicules" class="btn-benefit">
-            Voir les extraits
-          </RouterLink>
+          <RouterLink to="/#preview-fascicules" class="btn-benefit"> Voir les extraits </RouterLink>
         </div>
 
         <div class="benefit">
           <i class="fas fa-graduation-cap"></i>
           <h3>Préparation aux Examens</h3>
           <p>Profitez de modules dédiés à la révision du Brevet et du Baccalauréat.</p>
-          <RouterLink to="/categories" class="btn-benefit">
-            Voir les modules
-          </RouterLink>
+          <RouterLink to="/categories" class="btn-benefit"> Voir les modules </RouterLink>
         </div>
-
       </div>
     </section>
     <section class="testimonials">
       <h2>Ils ont réussi avec nous</h2>
       <div class="testimonial-grid">
         <div v-for="testimonial in testimonials" :key="testimonial.name" class="testimonial-card">
-          <img :src="testimonial.imageUrl" :alt="'Photo de ' + testimonial.name" class="testimonial-photo">
+          <img
+            :src="testimonial.imageUrl"
+            :alt="'Photo de ' + testimonial.name"
+            class="testimonial-photo"
+          />
           <p class="testimonial-quote">"{{ testimonial.quote }}"</p>
           <h4 class="testimonial-name">{{ testimonial.name }}</h4>
           <span class="testimonial-class">{{ testimonial.class }}</span>
@@ -86,23 +78,26 @@ import { RouterLink } from 'vue-router' // Important pour les boutons
 // Données d'exemple pour les témoignages (inchangées)
 const testimonials = ref([
   {
-    name: "Aïssatou Diallo",
-    class: "Terminale S2 - Mention Très Bien",
-    quote: "Les fascicules de Maths étaient incroyablement clairs. J'ai pu rattraper mon retard sur les nombres complexes en quelques jours seulement. Je recommande à 100% !",
-    imageUrl: "/images/students/student-1.png"
+    name: 'Aïssatou Diallo',
+    class: 'Terminale S2 - Mention Très Bien',
+    quote:
+      "Les fascicules de Maths étaient incroyablement clairs. J'ai pu rattraper mon retard sur les nombres complexes en quelques jours seulement. Je recommande à 100% !",
+    imageUrl: '/images/students/student-1.png',
   },
   {
-    name: "Mamadou Sow",
-    class: "Première S1",
-    quote: "Je n'ai jamais vraiment compris la mécanique avant de suivre les modules de PC. Le professeur explique super bien et les animations m'ont aidé à visualiser les forces.",
-    imageUrl: "/images/students/student-2.png"
+    name: 'Mamadou Sow',
+    class: 'Première S1',
+    quote:
+      "Je n'ai jamais vraiment compris la mécanique avant de suivre les modules de PC. Le professeur explique super bien et les animations m'ont aidé à visualiser les forces.",
+    imageUrl: '/images/students/student-2.png',
   },
   {
-    name: "Coumba Gueye",
-    class: "Seconde S",
-    quote: "J'avais peur de la Seconde, mais les cours sur les fonctions m'ont donné confiance. Les exercices corrigés sont parfaits pour s'entraîner.",
-    imageUrl: "/images/students/student-3.png"
-  }
+    name: 'Coumba Gueye',
+    class: 'Seconde S',
+    quote:
+      "J'avais peur de la Seconde, mais les cours sur les fonctions m'ont donné confiance. Les exercices corrigés sont parfaits pour s'entraîner.",
+    imageUrl: '/images/students/student-3.png',
+  },
 ])
 </script>
 
@@ -159,7 +154,8 @@ const testimonials = ref([
 .benefit:hover {
   transform: translateY(-10px);
 }
-.benefit i { /* Style pour les icônes */
+.benefit i {
+  /* Style pour les icônes */
   font-size: 2.5rem;
   color: var(--primary);
   margin-bottom: 1.5rem;
@@ -190,18 +186,17 @@ const testimonials = ref([
 }
 .btn-benefit:hover {
   background-color: var(--primary-dark);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 /* Style alternatif pour le 2e bouton */
 .benefit:nth-child(2n) .btn-benefit {
-   background-color: var(--pink); /* Rose clair */
-   color: var(--primary);
+  background-color: var(--pink); /* Rose clair */
+  color: var(--primary);
 }
 .benefit:nth-child(2n) .btn-benefit:hover {
-   background-color: var(--white); /* Rose foncé */
-   color: #fff;
+  background-color: var(--white); /* Rose foncé */
+  color: #fff;
 }
-
 
 /* Section Témoignages (inchangée) */
 .testimonials {

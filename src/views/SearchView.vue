@@ -5,7 +5,8 @@
       <span class="search-term">"{{ searchTerm }}"</span>
     </h1>
     <p class="page-intro">
-      {{ searchResults.length }} {{ searchResults.length > 1 ? 'résultats trouvés' : 'résultat trouvé' }}
+      {{ searchResults.length }}
+      {{ searchResults.length > 1 ? 'résultats trouvés' : 'résultat trouvé' }}
     </p>
 
     <div class="search-results-grid">
@@ -13,7 +14,9 @@
         <div v-for="module in searchResults" :key="module.id" class="module-card">
           <div class="module-header" :style="{ borderLeftColor: module.color }">
             <div class="module-info">
-              <span class="subject-tag" :style="{ backgroundColor: module.color }">{{ module.subject }}</span>
+              <span class="subject-tag" :style="{ backgroundColor: module.color }">{{
+                module.subject
+              }}</span>
               <h3>{{ module.title }}</h3>
               <span class="level-tag">{{ module.level }}</span>
             </div>
@@ -28,7 +31,6 @@
         <p>Aucun module ou chapitre ne correspond à votre recherche.</p>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -53,10 +55,13 @@ const performSearch = (query) => {
 
 // On observe 'searchTerm'. Si l'URL change, on relance la recherche.
 // 'immediate: true' lance la recherche au chargement initial de la page
-watch(searchTerm, (newQuery) => {
-  performSearch(newQuery)
-}, { immediate: true })
-
+watch(
+  searchTerm,
+  (newQuery) => {
+    performSearch(newQuery)
+  },
+  { immediate: true },
+)
 </script>
 
 <style scoped>

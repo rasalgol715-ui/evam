@@ -1,19 +1,15 @@
 <template>
   <div class="page-container">
     <h1 class="page-title">Notre Équipe Pédagogique</h1>
-    <p class="page-intro">
-      Des professeurs passionnés et dévoués à votre réussite.
-    </p>
+    <p class="page-intro">Des professeurs passionnés et dévoués à votre réussite.</p>
 
     <div class="team-grid">
-
       <div v-for="member in team" :key="member.name" class="team-card">
-        <img :src="member.imageUrl" :alt="'Photo de ' + member.name" class="team-photo">
+        <img :src="member.imageUrl" :alt="'Photo de ' + member.name" class="team-photo" />
         <h3 class="team-name">{{ member.name }}</h3>
         <p class="team-role">{{ member.role }}</p>
         <p class="team-bio">{{ member.bio }}</p>
       </div>
-
     </div>
   </div>
 </template>
@@ -24,23 +20,23 @@ import { ref } from 'vue'
 // Remplacez ces données par les informations de votre équipe
 const team = ref([
   {
-    name: "M. Abdoulaye Diop",
-    role: "Professeur Agrégé de Mathématiques",
+    name: 'M. Abdoulaye Diop',
+    role: 'Professeur Agrégé de Mathématiques',
     bio: "Avec plus de 15 ans d'expérience dans la préparation au Baccalauréat, M. Diop simplifie les concepts les plus complexes de l'analyse et de l'algèbre.",
-    imageUrl: "/images/team/prof-maths.png" // Vous devrez ajouter cette image
+    imageUrl: '/images/team/prof-maths.png', // Vous devrez ajouter cette image
   },
   {
-    name: "Mme. Fatou Ndiaye",
-    role: "Professeure Certifiée de Physique-Chimie",
+    name: 'Mme. Fatou Ndiaye',
+    role: 'Professeure Certifiée de Physique-Chimie',
     bio: "Spécialiste de la pédagogie par l'exemple, Mme. Ndiaye rend la mécanique et la chimie organique accessibles et passionnantes pour tous les niveaux.",
-    imageUrl: "/images/team/prof-pc.png" // Vous devrez ajouter cette image
+    imageUrl: '/images/team/prof-pc.png', // Vous devrez ajouter cette image
   },
   {
-    name: "Dr. Cheikh Anta Fall",
-    role: "Fondateur & Coordinateur Pédagogique",
+    name: 'Dr. Cheikh Anta Fall',
+    role: 'Fondateur & Coordinateur Pédagogique',
     bio: "Notre mission est de garantir que chaque élève, où qu'il soit, ait accès aux meilleurs outils pour bâtir son avenir. L'excellence est notre standard.",
-    imageUrl: "/images/team/fondateur.png" // Vous devrez ajouter cette image
-  }
+    imageUrl: '/images/team/fondateur.png', // Vous devrez ajouter cette image
+  },
 ])
 </script>
 

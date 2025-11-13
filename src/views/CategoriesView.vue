@@ -1,21 +1,19 @@
 <template>
   <div class="categories-page">
     <h1 class="page-title">Tableau de bord des Catégories</h1>
-    <p class="page-intro">
-      Accédez à tous nos cours et modules par niveau et par matière.
-    </p>
+    <p class="page-intro">Accédez à tous nos cours et modules par niveau et par matière.</p>
 
     <div v-for="category in categories" :key="category.level" class="level-section">
-
-      <h2 class="level-title" :style="{ backgroundColor: category.level === 'Lycée' ? '#0021B5' : '#FE66C4' }">
+      <h2
+        class="level-title"
+        :style="{ backgroundColor: category.level === 'Lycée' ? '#0021B5' : '#FE66C4' }"
+      >
         {{ category.level }}
       </h2>
       <p class="level-intro">{{ category.intro }}</p>
 
       <div class="subject-grid">
-
         <div v-for="section in category.sections" :key="section.subject" class="subject-card">
-
           <div class="subject-header" :style="{ borderTopColor: section.color }">
             <i :class="section.icon" :style="{ color: section.color }"></i>
             <h3>{{ section.subject }}</h3>
@@ -23,19 +21,27 @@
 
           <ul class="level-list">
             <li v-for="level in section.levels" :key="level">
-
               <RouterLink
-                :to="level === 'Terminale' ? '/terminale' :
-                     (level === 'Première' ? '/premiere' :
-                     (level === 'Seconde' ? '/seconde' : '#'))"
+                :to="
+                  level === 'Terminale'
+                    ? '/terminale'
+                    : level === 'Première'
+                      ? '/premiere'
+                      : level === 'Seconde'
+                        ? '/seconde'
+                        : '#'
+                "
               >
                 {{ level }}
                 <i class="fas fa-arrow-right"></i>
               </RouterLink>
             </li>
           </ul>
-
-        </div> </div> </div> </div> </template>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
 
 <script setup>
 import { ref, computed } from 'vue'
@@ -46,40 +52,76 @@ const route = useRoute() // Permet de lire l'URL actuelle
 // C'est notre liste "maître"
 const allCategories = ref([
   {
-    level: "Lycée",
-    intro: "Cours et fascicules pour la 2nde, la Première et la Terminale.",
+    level: 'Lycée',
+    intro: 'Cours et fascicules pour la 2nde, la Première et la Terminale.',
     sections: [
-      { subject: "Mathématiques", slug: "maths", color: "#0021B5", icon: "fas fa-calculator", levels: ["Terminale", "Première", "Seconde"] },
-      { subject: "Physique-Chimie", slug: "pc", color: "#1E90FF", icon: "fas fa-flask", levels: ["Terminale", "Première", "Seconde"] },
-      { subject: "Informatique", slug: "info", color: "#FE66C4", icon: "fas fa-laptop-code", levels: ["Terminale", "Première"] }
-    ]
+      {
+        subject: 'Mathématiques',
+        slug: 'maths',
+        color: '#0021B5',
+        icon: 'fas fa-calculator',
+        levels: ['Terminale', 'Première', 'Seconde'],
+      },
+      {
+        subject: 'Physique-Chimie',
+        slug: 'pc',
+        color: '#1E90FF',
+        icon: 'fas fa-flask',
+        levels: ['Terminale', 'Première', 'Seconde'],
+      },
+      {
+        subject: 'Informatique',
+        slug: 'info',
+        color: '#FE66C4',
+        icon: 'fas fa-laptop-code',
+        levels: ['Terminale', 'Première'],
+      },
+    ],
   },
   {
-    level: "Collège",
-    intro: "Cours et modules pour la 6ème, la 5ème, la 4ème et la 3ème.",
+    level: 'Collège',
+    intro: 'Cours et modules pour la 6ème, la 5ème, la 4ème et la 3ème.',
     sections: [
-      { subject: "Mathématiques", slug: "maths", color: "#0021B5", icon: "fas fa-square-root-alt", levels: ["3ème", "4ème", "5ème", "6ème"] },
-      { subject: "Physique", slug: "pc", color: "#1E90FF", icon: "fas fa-atom", levels: ["3ème", "4ème"] },
-      { subject: "Modules Spéciaux", slug: "autres", color: "#FE66C4", icon: "fas fa-cubes", levels: ["Révision", "Brevet Blanc"] }
-    ]
-  }
-]);
+      {
+        subject: 'Mathématiques',
+        slug: 'maths',
+        color: '#0021B5',
+        icon: 'fas fa-square-root-alt',
+        levels: ['3ème', '4ème', '5ème', '6ème'],
+      },
+      {
+        subject: 'Physique',
+        slug: 'pc',
+        color: '#1E90FF',
+        icon: 'fas fa-atom',
+        levels: ['3ème', '4ème'],
+      },
+      {
+        subject: 'Modules Spéciaux',
+        slug: 'autres',
+        color: '#FE66C4',
+        icon: 'fas fa-cubes',
+        levels: ['Révision', 'Brevet Blanc'],
+      },
+    ],
+  },
+])
 
 // Variable "calculée" pour le filtrage
 const categories = computed(() => {
-  const matiereFiltre = route.query.matiere;
+  const matiereFiltre = route.query.matiere
   if (!matiereFiltre) {
-    return allCategories.value;
+    return allCategories.value
   }
   const filteredList = allCategories.value
-    .map(category => {
-      const filteredSections = category.sections.filter(section => section.slug === matiereFiltre);
-      return { ...category, sections: filteredSections };
+    .map((category) => {
+      const filteredSections = category.sections.filter((section) => section.slug === matiereFiltre)
+      return { ...category, sections: filteredSections }
     })
-    .filter(category => category.sections.length > 0);
+    .filter((category) => category.sections.length > 0)
 
-  return filteredList;
-});
+  return filteredList
+})
 </script>
 
 <style scoped>
@@ -181,7 +223,7 @@ const categories = computed(() => {
   color: var(--primary);
   transform: translateX(5px);
 }
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   .level-title {
     font-size: 1.5rem;
   }

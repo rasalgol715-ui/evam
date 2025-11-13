@@ -1,9 +1,7 @@
 <template>
   <div class="page-view">
     <h1 class="page-title">Cours de Terminale</h1>
-    <p class="page-intro">
-      Accès complet aux modules de Mathématiques et Physique-Chimie.
-    </p>
+    <p class="page-intro">Accès complet aux modules de Mathématiques et Physique-Chimie.</p>
 
     <div class="controls-panel">
       <div class="filter-buttons">
@@ -16,7 +14,7 @@
           :style="{
             backgroundColor: selectedSubject === subject ? 'var(--primary)' : '#fff',
             color: selectedSubject === subject ? 'white' : 'var(--text-dark)',
-            borderColor: selectedSubject === subject ? 'var(--primary)' : '#ccc'
+            borderColor: selectedSubject === subject ? 'var(--primary)' : '#ccc',
           }"
         >
           {{ subject }}
@@ -44,7 +42,9 @@
           @click="toggleModule(module)"
         >
           <div class="module-info">
-            <span class="subject-tag" :style="{ backgroundColor: module.color }">{{ module.subject }}</span>
+            <span class="subject-tag" :style="{ backgroundColor: module.color }">{{
+              module.subject
+            }}</span>
             <h3>{{ module.title }}</h3>
           </div>
           <i class="fas fa-chevron-down module-icon"></i>
@@ -84,32 +84,35 @@ const { getModulesByLevel } = useCourses()
 const modulesTerminale = ref(getModulesByLevel('Terminale'))
 
 // --- La logique d'interactivité reste la même ---
-const selectedSubject = ref('Tous');
-const searchText = ref('');
+const selectedSubject = ref('Tous')
+const searchText = ref('')
 
 const toggleModule = (module) => {
   module.isOpen = !module.isOpen
 }
 
 const filteredModules = computed(() => {
-  const query = searchText.value.toLowerCase().trim();
-  return modulesTerminale.value.filter(module => {
-    const subjectMatch = selectedSubject.value === 'Tous' || module.subject === selectedSubject.value;
-    const textMatch = module.title.toLowerCase().includes(query) ||
-                      module.chapters.some(chapter => chapter.toLowerCase().includes(query));
-    return subjectMatch && textMatch;
-  });
-});
+  const query = searchText.value.toLowerCase().trim()
+  return modulesTerminale.value.filter((module) => {
+    const subjectMatch =
+      selectedSubject.value === 'Tous' || module.subject === selectedSubject.value
+    const textMatch =
+      module.title.toLowerCase().includes(query) ||
+      module.chapters.some((chapter) => chapter.toLowerCase().includes(query))
+    return subjectMatch && textMatch
+  })
+})
 
 const uniqueSubjects = computed(() => {
-  const subjects = new Set(modulesTerminale.value.map(m => m.subject));
-  return ['Tous', ...Array.from(subjects)];
-});
+  const subjects = new Set(modulesTerminale.value.map((m) => m.subject))
+  return ['Tous', ...Array.from(subjects)]
+})
 </script>
 
 <style scoped>
 /* Le style est maintenant au bon endroit */
-.page-view { /* Renommé de .terminale-view pour être générique */
+.page-view {
+  /* Renommé de .terminale-view pour être générique */
   max-width: 1000px;
   margin: 4rem auto;
   padding: 0 2rem;

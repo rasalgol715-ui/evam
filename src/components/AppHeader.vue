@@ -1,7 +1,9 @@
 <template>
   <header>
     <nav class="navbar">
-      <RouterLink to="/"><img src="/images/evam logo.png" alt="logo" class="logo-image"></RouterLink>
+      <RouterLink to="/"
+        ><img src="/images/evam logo.png" alt="logo" class="logo-image"
+      /></RouterLink>
 
       <div class="logo">
         <RouterLink to="/">EvaM group</RouterLink>
@@ -45,12 +47,12 @@
       </div>
 
       <button class="login-btn">
-        <RouterLink to="/login" style="color:white; text-decoration:none;">Se connecter</RouterLink>
+        <RouterLink to="/login" style="color: white; text-decoration: none"
+          >Se connecter</RouterLink
+        >
       </button>
 
-      <div class="menu-toggle"
-           @click="toggleMobileMenu"
-           :class="{ open: isMobileMenuOpen }">
+      <div class="menu-toggle" @click="toggleMobileMenu" :class="{ open: isMobileMenuOpen }">
         <span></span>
         <span></span>
         <span></span>
@@ -77,7 +79,9 @@
         <i class="fas fa-chevron-down" :class="{ rotated: isMobileIaOpen }"></i>
       </a>
       <div class="mobile-submenu" v-show="isMobileIaOpen">
-        <RouterLink to="/academie-ia" @click="closeMobileMenu">Parcours Métiers (Étudiants)</RouterLink>
+        <RouterLink to="/academie-ia" @click="closeMobileMenu"
+          >Parcours Métiers (Étudiants)</RouterLink
+        >
         <RouterLink to="/entreprises" @click="closeMobileMenu">Pour les Entreprises</RouterLink>
       </div>
 
@@ -86,20 +90,23 @@
         <i class="fas fa-chevron-down" :class="{ rotated: isMobileCoursOpen }"></i>
       </a>
       <div class="mobile-submenu" v-show="isMobileCoursOpen">
-        <RouterLink to="/categories?matiere=maths" @click="closeMobileMenu">Mathématiques</RouterLink>
-        <RouterLink to="/categories?matiere=pc" @click="closeMobileMenu">Physique-Chimie</RouterLink>
+        <RouterLink to="/categories?matiere=maths" @click="closeMobileMenu"
+          >Mathématiques</RouterLink
+        >
+        <RouterLink to="/categories?matiere=pc" @click="closeMobileMenu"
+          >Physique-Chimie</RouterLink
+        >
         <RouterLink to="/categories?matiere=info" @click="closeMobileMenu">Informatique</RouterLink>
       </div>
 
       <RouterLink to="/etudiants" @click="closeMobileMenu">Étudiants</RouterLink>
       <RouterLink to="/contact" @click="closeMobileMenu">Contact</RouterLink>
-      <RouterLink to="/login" class="login-btn-mobile" @click="closeMobileMenu">Se connecter</RouterLink>
+      <RouterLink to="/login" class="login-btn-mobile" @click="closeMobileMenu"
+        >Se connecter</RouterLink
+      >
     </div>
 
-    <div id="overlay"
-      :class="{ active: isMobileMenuOpen }"
-      @click="closeMobileMenu">
-    </div>
+    <div id="overlay" :class="{ active: isMobileMenuOpen }" @click="closeMobileMenu"></div>
   </header>
 </template>
 
@@ -140,7 +147,8 @@ const toggleMobileSubmenu = (menu) => {
     isMobileCoursOpen.value = !isMobileCoursOpen.value
     isMobileClassesOpen.value = false // Ferme les autres
     isMobileIaOpen.value = false // --- AJOUTÉ ---
-  } else if (menu === 'ia') { // --- AJOUTÉ ---
+  } else if (menu === 'ia') {
+    // --- AJOUTÉ ---
     isMobileIaOpen.value = !isMobileIaOpen.value
     isMobileClassesOpen.value = false // Ferme les autres
     isMobileCoursOpen.value = false // Ferme les autres
@@ -170,7 +178,7 @@ const handleSearch = () => {
   // Redirige vers la page de recherche avec le terme en paramètre
   router.push({
     name: 'search',
-    query: { q: searchQuery.value }
+    query: { q: searchQuery.value },
   })
   // Vide la barre de recherche
   searchQuery.value = ''
@@ -253,7 +261,7 @@ header {
 }
 
 .nav-links a::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: -4px;
   left: 0;
@@ -451,7 +459,9 @@ a.login-btn-mobile:hover {
   z-index: 200;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s;
 }
 
 #overlay.active {

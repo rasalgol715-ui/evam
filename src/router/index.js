@@ -28,97 +28,92 @@ const router = createRouter({
       // Route pour la page d'accueil (HomeView est utilisé)
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
     },
     {
       // Route pour la page Catégories (CategoriesView est utilisé)
       path: '/categories',
       name: 'categories',
-      component: CategoriesView
+      component: CategoriesView,
     },
     {
       // Route pour la page Terminale (TerminaleView est utilisé)
       path: '/terminale',
       name: 'terminale',
-      component: TerminaleView
+      component: TerminaleView,
     },
     // Route pour la page Première (PremiereView est utilisé)
     {
       path: '/premiere',
       name: 'premiere',
-      component: PremiereView
+      component: PremiereView,
     },
-    // Route pour la page Seconde (SecondeView est utilisé)
-    {
-      path: '/premiere',
-      name: 'premiere',
-      component: PremiereView // Assurez-vous que cette vue existe aussi
-    },
+
     {
       path: '/seconde', // <-- NOUVELLE ROUTE
       name: 'seconde',
-      component: SecondeView
+      component: SecondeView,
     },
 
-      // Route pour la page Contact (ContactView est utilisé)
+    // Route pour la page Contact (ContactView est utilisé)
     {
       path: '/contact',
       name: 'contact',
-      component: ContactView
+      component: ContactView,
     },
     {
       path: '/about', // <-- NOUVELLE ROUTE
       name: 'about',
-      component: AboutView
+      component: AboutView,
     },
     {
       path: '/faq', // <-- NOUVELLE ROUTE
       name: 'faq',
-      component: FaqView
+      component: FaqView,
     },
     {
       path: '/team', // <-- NOUVELLE ROUTE
       name: 'team',
-      component: TeamView
+      component: TeamView,
     },
     {
       path: '/etudiants', // <-- NOUVELLE ROUTE
       name: 'etudiants',
-      component: EtudiantsView
+      component: EtudiantsView,
     },
     {
       path: '/login',
       name: 'login',
-      component: LoginView
+      component: LoginView,
     },
     {
       path: '/search', // <-- NOUVELLE ROUTE
       name: 'search',
-      component: SearchView
+      component: SearchView,
     },
     {
       path: '/careers', // <-- NOUVELLE ROUTE
       name: 'careers',
-      component: CareersView
+      component: CareersView,
     },
 
     // --- NOUVELLES ROUTES AJOUTÉES ---
     {
       path: '/academie-ia',
       name: 'academie-ia',
-      component: AcademieIAView
+      component: AcademieIAView,
     },
     {
       path: '/entreprises',
       name: 'entreprises',
-      component: EntreprisesView
-    }
+      component: EntreprisesView,
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
     // Si l'URL contient une "ancre" (un hash, ex: #module-3)
     if (to.hash) {
       return {
-        el: to.hash,     // Dit à Vue de faire défiler vers l'élément avec cet id
+        el: to.hash, // Dit à Vue de faire défiler vers l'élément avec cet id
         behavior: 'smooth', // Ajoute un défilement fluide
         top: 80, // Ajoute un décalage (pour ne pas être collé sous le header)
       }
@@ -133,6 +128,6 @@ const router = createRouter({
     else {
       return { top: 0 }
     }
-  }
+  },
 })
 export default router

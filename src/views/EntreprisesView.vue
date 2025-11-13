@@ -2,37 +2,43 @@
   <div class="page-container">
     <h1 class="page-title">Solutions Entreprises</h1>
     <p class="page-intro">
-      Préparez vos équipes à la révolution de l'IA.
-      Formez, évaluez et recrutez les meilleurs talents IA au Sénégal.
+      Préparez vos équipes à la révolution de l'IA. Formez, évaluez et recrutez les meilleurs
+      talents IA au Sénégal.
     </p>
 
     <!-- J'utilise le style de carte de AboutView -->
     <div class="content-card">
       <h3>Formez vos Équipes à l'IA</h3>
       <p>
-        La montée en compétence (upskilling) en IA n'est plus une option. Nous proposons des parcours de formation clés en main pour vos collaborateurs :
+        La montée en compétence (upskilling) en IA n'est plus une option. Nous proposons des
+        parcours de formation clés en main pour vos collaborateurs :
       </p>
       <ul>
         <li>
-          <strong>Pour les Managers :</strong> Comprendre les enjeux de l'IA, gérer des projets IA, et identifier les opportunités.
+          <strong>Pour les Managers :</strong> Comprendre les enjeux de l'IA, gérer des projets IA,
+          et identifier les opportunités.
         </li>
         <li>
-          <strong>Pour les Équipes Tech :</strong> Maîtrise des outils d'IA Générative, intégration d'API, et fondamentaux du Machine Learning.
+          <strong>Pour les Équipes Tech :</strong> Maîtrise des outils d'IA Générative, intégration
+          d'API, et fondamentaux du Machine Learning.
         </li>
         <li>
-          <strong>Pour tous les Employés :</strong> Utiliser l'IA au quotidien pour gagner en productivité (Prompting, outils bureautiques IA).
+          <strong>Pour tous les Employés :</strong> Utiliser l'IA au quotidien pour gagner en
+          productivité (Prompting, outils bureautiques IA).
         </li>
       </ul>
-       <RouterLink to="/contact" class="btn-apply">Demander une démo</RouterLink>
+      <RouterLink to="/contact" class="btn-apply">Demander une démo</RouterLink>
     </div>
 
     <div class="content-card">
       <h3>Recrutez nos Talents</h3>
       <p>
-        Besoin de renforcer vos équipes ? Accédez à notre vivier d'étudiants formés et certifiés par l'Académie IA.
+        Besoin de renforcer vos équipes ? Accédez à notre vivier d'étudiants formés et certifiés par
+        l'Académie IA.
       </p>
-       <p>
-        Nous vous mettons en relation avec les meilleurs profils de Data Analysts, Prompt Engineers et Développeurs IA juniors du Sénégal, formés sur des cas d'usage concrets.
+      <p>
+        Nous vous mettons en relation avec les meilleurs profils de Data Analysts, Prompt Engineers
+        et Développeurs IA juniors du Sénégal, formés sur des cas d'usage concrets.
       </p>
       <RouterLink to="/contact" class="btn-apply">Contacter notre service Carrières</RouterLink>
     </div>
@@ -49,7 +55,6 @@
         <span>InTouch</span>
       </div>
     </section>
-
   </div>
 </template>
 

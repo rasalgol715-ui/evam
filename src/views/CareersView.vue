@@ -2,17 +2,16 @@
   <div class="page-container">
     <h1 class="page-title">Rejoignez l'Aventure EvaM Group</h1>
     <p class="page-intro">
-      Nous recherchons des talents passionnés par l'éducation et l'innovation
-      pour révolutionner l'apprentissage en ligne.
+      Nous recherchons des talents passionnés par l'éducation et l'innovation pour révolutionner
+      l'apprentissage en ligne.
     </p>
 
     <div class="content-card">
       <h3>Notre Culture</h3>
       <p>
-        Chez EvaM Group, nous croyons à l'excellence, à la collaboration et à
-        l'impact. Nous travaillons dans un environnement dynamique où chaque
-        idée compte et où chaque membre de l'équipe contribue directement
-        à la réussite de milliers d'élèves.
+        Chez EvaM Group, nous croyons à l'excellence, à la collaboration et à l'impact. Nous
+        travaillons dans un environnement dynamique où chaque idée compte et où chaque membre de
+        l'équipe contribue directement à la réussite de milliers d'élèves.
       </p>
     </div>
 
@@ -24,7 +23,10 @@
           <h4>{{ job.title }}</h4>
           <span class="job-location">{{ job.location }}</span>
           <p class="job-description">{{ job.description }}</p>
-          <a :href="'mailto:recrutement@evamgroup.com?subject=Candidature - ' + job.title" class="btn-apply">
+          <a
+            :href="'mailto:recrutement@evamgroup.com?subject=Candidature - ' + job.title"
+            class="btn-apply"
+          >
             Postuler
           </a>
         </div>
@@ -33,16 +35,15 @@
       <div v-else class="no-jobs">
         <p>
           Il n'y a pas de poste ouvert pour le moment.
-          <br>
-          Cependant, nous sommes toujours à la recherche de talents.
-          N'hésitez pas à nous envoyer une candidature spontanée !
+          <br />
+          Cependant, nous sommes toujours à la recherche de talents. N'hésitez pas à nous envoyer
+          une candidature spontanée !
         </p>
         <a href="mailto:recrutement@evamgroup.com?subject=Candidature Spontanée" class="btn-apply">
           Candidature Spontanée
         </a>
       </div>
     </section>
-
   </div>
 </template>
 
@@ -52,15 +53,17 @@ import { ref } from 'vue'
 // Vous pouvez mettre à jour cette liste depuis un CMS plus tard
 const openPositions = ref([
   {
-    title: "Professeur Rédacteur (Maths)",
-    location: "Télétravail (Dakar)",
-    description: "Recherche d'un professeur de mathématiques expérimenté pour créer des contenus pédagogiques clairs et des exercices corrigés pour le niveau Lycée."
+    title: 'Professeur Rédacteur (Maths)',
+    location: 'Télétravail (Dakar)',
+    description:
+      "Recherche d'un professeur de mathématiques expérimenté pour créer des contenus pédagogiques clairs et des exercices corrigés pour le niveau Lycée.",
   },
   {
-    title: "Monteur Vidéo Pédagogique",
-    location: "Télétravail",
-    description: "Nous cherchons un monteur vidéo créatif capable d'animer des concepts complexes de physique-chimie pour nos modules en ligne."
-  }
+    title: 'Monteur Vidéo Pédagogique',
+    location: 'Télétravail',
+    description:
+      "Nous cherchons un monteur vidéo créatif capable d'animer des concepts complexes de physique-chimie pour nos modules en ligne.",
+  },
   // Mettez cette liste à vide [] pour voir le message "aucun poste"
 ])
 </script>
@@ -175,7 +178,8 @@ const openPositions = ref([
   line-height: 1.7;
   margin-bottom: 2rem;
 }
-.no-jobs .btn-apply { /* Style pour le bouton centré */
+.no-jobs .btn-apply {
+  /* Style pour le bouton centré */
   align-self: auto;
   grid-column: auto;
   grid-row: auto;
