@@ -1,4 +1,4 @@
-import KimiChat from './components/KimiChat/KimiChat';
+import KimiChat from './components/KimiChat';
 
 function App() {
   return (
