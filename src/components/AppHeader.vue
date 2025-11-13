@@ -11,20 +11,21 @@
         <li><RouterLink to="/">Accueil</RouterLink></li>
 
         <li class="dropdown">
-          <RouterLink to="/categories" class="dropdown-toggle">Classes ▾</RouterLink>
+          <RouterLink to="/categories" class="dropdown-toggle">Soutien Lycée ▾</RouterLink>
           <ul class="dropdown-content">
             <li><RouterLink to="/seconde">2nde Second</RouterLink></li>
             <li><RouterLink to="/premiere">Premiere</RouterLink></li>
             <li><RouterLink to="/terminale">Terminale</RouterLink></li>
+            <li><RouterLink to="/categories">Tous les cours</RouterLink></li>
           </ul>
         </li>
 
+        <!-- --- NOUVEAU MENU DÉROULANT "ACADÉMIE IA" --- -->
         <li class="dropdown">
-          <RouterLink to="/categories" class="dropdown-toggle">Cours ▾</RouterLink>
+          <RouterLink to="/academie-ia" class="dropdown-toggle">Académie IA ▾</RouterLink>
           <ul class="dropdown-content">
-            <li><RouterLink to="/categories?matiere=maths">Mathématiques</RouterLink></li>
-            <li><RouterLink to="/categories?matiere=pc">Physique-Chimie</RouterLink></li>
-            <li><RouterLink to="/categories?matiere=info">Informatique</RouterLink></li>
+            <li><RouterLink to="/academie-ia">Parcours Métiers</RouterLink></li>
+            <li><RouterLink to="/entreprises">Pour les Entreprises</RouterLink></li>
           </ul>
         </li>
 
@@ -60,7 +61,7 @@
       <RouterLink to="/" @click="closeMobileMenu">Accueil</RouterLink>
 
       <a href="#" class="mobile-dropdown-toggle" @click.prevent="toggleMobileSubmenu('classes')">
-        Classes
+        Soutien Lycée
         <i class="fas fa-chevron-down" :class="{ rotated: isMobileClassesOpen }"></i>
       </a>
       <div class="mobile-submenu" v-show="isMobileClassesOpen">
@@ -70,8 +71,18 @@
         <RouterLink to="/terminale" @click="closeMobileMenu">Terminale</RouterLink>
       </div>
 
+      <!-- --- NOUVEAU SOUS-MENU MOBILE "ACADÉMIE IA" --- -->
+      <a href="#" class="mobile-dropdown-toggle" @click.prevent="toggleMobileSubmenu('ia')">
+        Académie IA
+        <i class="fas fa-chevron-down" :class="{ rotated: isMobileIaOpen }"></i>
+      </a>
+      <div class="mobile-submenu" v-show="isMobileIaOpen">
+        <RouterLink to="/academie-ia" @click="closeMobileMenu">Parcours Métiers (Étudiants)</RouterLink>
+        <RouterLink to="/entreprises" @click="closeMobileMenu">Pour les Entreprises</RouterLink>
+      </div>
+
       <a href="#" class="mobile-dropdown-toggle" @click.prevent="toggleMobileSubmenu('cours')">
-        Cours
+        Matières
         <i class="fas fa-chevron-down" :class="{ rotated: isMobileCoursOpen }"></i>
       </a>
       <div class="mobile-submenu" v-show="isMobileCoursOpen">
@@ -104,6 +115,7 @@ import { useRouter } from 'vue-router'
 const isMobileMenuOpen = ref(false)
 const isMobileClassesOpen = ref(false)
 const isMobileCoursOpen = ref(false)
+const isMobileIaOpen = ref(false) // --- AJOUTÉ ---
 
 // État pour la recherche
 const searchQuery = ref('')
@@ -122,10 +134,16 @@ const toggleMobileMenu = () => {
 const toggleMobileSubmenu = (menu) => {
   if (menu === 'classes') {
     isMobileClassesOpen.value = !isMobileClassesOpen.value
-    isMobileCoursOpen.value = false // Ferme l'autre pour éviter les conflits
+    isMobileCoursOpen.value = false // Ferme les autres
+    isMobileIaOpen.value = false // --- AJOUTÉ ---
   } else if (menu === 'cours') {
     isMobileCoursOpen.value = !isMobileCoursOpen.value
-    isMobileClassesOpen.value = false // Ferme l'autre
+    isMobileClassesOpen.value = false // Ferme les autres
+    isMobileIaOpen.value = false // --- AJOUTÉ ---
+  } else if (menu === 'ia') { // --- AJOUTÉ ---
+    isMobileIaOpen.value = !isMobileIaOpen.value
+    isMobileClassesOpen.value = false // Ferme les autres
+    isMobileCoursOpen.value = false // Ferme les autres
   }
 }
 
@@ -134,6 +152,7 @@ const closeMobileMenu = () => {
   isMobileMenuOpen.value = false
   isMobileClassesOpen.value = false
   isMobileCoursOpen.value = false
+  isMobileIaOpen.value = false // --- AJOUTÉ ---
 }
 
 // Fonction pour la gestion du scroll

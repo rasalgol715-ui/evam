@@ -21,15 +21,18 @@
         <div>
           <h4 class="font-bold mb-4">Formations</h4>
           <ul class="space-y-2 text-gray-400 text-sm">
-            <li><RouterLink to="/categories" class="hover:text-white transition-colors">Mathématiques</RouterLink></li>
-            <li><RouterLink to="/categories" class="hover:text-white transition-colors">Physique-Chimie</RouterLink></li>
-            <li><RouterLink to="/categories" class="hover:text-white transition-colors">Informatique</RouterLink></li>
+            <li><RouterLink to="/categories" class="hover:text-white transition-colors">Soutien Lycée</RouterLink></li>
+            <li><RouterLink to="/academie-ia" class="hover:text-white transition-colors">Académie IA</RouterLink></li>
+            <li><RouterLink to="/terminale" class="hover:text-white transition-colors">Terminale</RouterLink></li>
+            <li><RouterLink to="/premiere" class="hover:text-white transition-colors">Première</RouterLink></li>
+            <li><RouterLink to="/seconde" class="hover:text-white transition-colors">Seconde</RouterLink></li>
           </ul>
         </div>
         <div>
           <h4 class="font-bold mb-4">Entreprise</h4>
           <ul class="space-y-2 text-gray-400 text-sm">
             <li><RouterLink to="/about" class="hover:text-white transition-colors">À propos</RouterLink></li>
+            <li><RouterLink to="/entreprises" class="hover:text-white transition-colors">Solutions Entreprises</RouterLink></li>
             <li><RouterLink to="/team" class="hover:text-white transition-colors">Notre équipe</RouterLink></li>
             <li><RouterLink to="/careers" class="hover:text-white transition-colors">Carrières</RouterLink></li>
           </ul>

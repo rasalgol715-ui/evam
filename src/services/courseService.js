@@ -70,6 +70,35 @@ const allModules = ref([
     color: '#1E90FF',
     path: '/seconde#module-7',
     chapters: ['Description de l\'Univers', 'Le système Solaire', 'Structure de l\'atome', 'Transformations chimiques']
+  },
+
+  // --- NOUVEAUX PARCOURS : ACADÉMIE IA ---
+  {
+    id: 8,
+    level: 'Académie IA', // Nouveau niveau
+    title: 'Parcours : Ingénieur Prompt & IA Générative',
+    subject: 'IA', // Nouvelle matière
+    color: '#6366f1', // Une nouvelle couleur (style JangaAI)
+    path: '/academie-ia#module-8',
+    chapters: ['Fondamentaux de l\'IA Générative', 'Maîtriser ChatGPT (Prompting)', 'Création d\'images avec Midjourney/DALL-E', 'Automatisation et API']
+  },
+  {
+    id: 9,
+    level: 'Académie IA',
+    title: 'Parcours : Analyste de Données (Data Analyst) IA',
+    subject: 'IA',
+    color: '#34d399', // Une nouvelle couleur
+    path: '/academie-ia#module-9',
+    chapters: ['Introduction à la Data Science', 'Python pour la Data (Pandas)', 'Visualisation (Matplotlib)', 'Analyse prédictive avec l\'IA']
+  },
+  {
+    id: 10,
+    level: 'Académie IA',
+    title: 'Parcours : Développeur IA / Machine Learning',
+    subject: 'IA',
+    color: '#f59e0b', // Une nouvelle couleur
+    path: '/academie-ia#module-10',
+    chapters: ['Algorithmes de Machine Learning', 'Bibliothèques (Scikit-learn)', 'Introduction au Deep Learning (TensorFlow/Keras)', 'Déployer un modèle IA']
   }
 ])
 
@@ -86,7 +115,8 @@ export function useCourses() {
     return allModules.value.filter(module => {
       const titleMatch = module.title.toLowerCase().includes(lowerQuery)
       const chapterMatch = module.chapters.some(chapter => chapter.toLowerCase().includes(lowerQuery))
-      return titleMatch || chapterMatch
+      const subjectMatch = module.subject.toLowerCase().includes(lowerQuery) // Ajout recherche par matière
+      return titleMatch || chapterMatch || subjectMatch
     })
   }
 

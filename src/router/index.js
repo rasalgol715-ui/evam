@@ -3,7 +3,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import CategoriesView from '../views/CategoriesView.vue'
-import TerminaleView from '../views/TerminaleView.vue' // Ligne que vous venez d'ajouter
+import TerminaleView from '../views/TerminaleView.vue'
 import PremiereView from '../views/PremiereView.vue'
 import SecondeView from '../views/SecondeView.vue'
 import ContactView from '../views/ContactView.vue'
@@ -14,6 +14,11 @@ import EtudiantsView from '../views/EtudiantsView.vue'
 import SearchView from '../views/SearchView.vue'
 import LoginView from '../views/LoginView.vue'
 import CareersView from '../views/CareersView.vue'
+
+// --- NOUVEAUX IMPORTS ---
+import AcademieIAView from '../views/AcademieIAView.vue'
+import EntreprisesView from '../views/EntreprisesView.vue'
+
 const router = createRouter({
   // VÉRIFIEZ : createWebHistory est utilisé ici, l'avertissement devrait disparaître
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -95,6 +100,18 @@ const router = createRouter({
       path: '/careers', // <-- NOUVELLE ROUTE
       name: 'careers',
       component: CareersView
+    },
+
+    // --- NOUVELLES ROUTES AJOUTÉES ---
+    {
+      path: '/academie-ia',
+      name: 'academie-ia',
+      component: AcademieIAView
+    },
+    {
+      path: '/entreprises',
+      name: 'entreprises',
+      component: EntreprisesView
     }
   ],
   scrollBehavior(to, from, savedPosition) {

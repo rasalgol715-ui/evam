@@ -7,17 +7,43 @@
           <h1>EvaM Group</h1>
         </div>
 
-        <p class="hero-subheadline">Maîtrisez vos cours avec nous.</p>
+        <p class="hero-subheadline">Formations d'excellence pour le Lycée et les Métiers du Futur.</p>
         <p class="hero-description">
-          Des ressources complètes pour exceller en Maths, Physique et Info.
+          Réussissez votre Bac avec nos cours de Maths/PC et préparez votre carrière avec l'Académie IA.
         </p>
 
         <div class="hero-buttons">
-          <RouterLink to="/categories" class="btn btn-primary">Découvrir les cours</RouterLink>
-          <RouterLink to="/contact" class="btn btn-secondary">Nous contacter</RouterLink>
+          <RouterLink to="/categories" class="btn btn-primary">Soutien Lycée</RouterLink>
+          <RouterLink to="/academie-ia" class="btn btn-secondary">Académie IA</RouterLink>
         </div>
       </div>
     </section>
+
+    <!-- NOUVELLE SECTION DE PRÉSENTATION IA -->
+    <section class="ia-showcase-section">
+      <div class="ia-showcase-container">
+        <div class="ia-showcase-text">
+          <h2>Découvrez notre Académie IA</h2>
+          <p class="section-intro">
+            L'intelligence Artificielle transforme le monde. Ne restez pas spectateur.
+            Nous formons les étudiants sénégalais aux métiers de demain :
+          </p>
+          <ul class="ia-features-list">
+            <li><i class="fas fa-check-circle"></i> Ingénieur Prompt & IA Générative</li>
+            <li><i class="fas fa-check-circle"></i> Analyste de Données (Data Analyst) IA</li>
+            <li><i class="fas fa-check-circle"></i> Développeur IA / Machine Learning</li>
+          </ul>
+          <div class="hero-buttons">
+            <RouterLink to="/academie-ia" class="btn btn-primary">Explorer les Parcours IA</RouterLink>
+          </div>
+        </div>
+        <div class="ia-showcase-image">
+          <!-- Utilisation de l'image que vous avez fournie -->
+          <img src="/images/etudiant-en-ligne.png" alt="Étudiant apprenant l'IA en ligne">
+        </div>
+      </div>
+    </section>
+
     <section class="features-section">
       <h2>Pourquoi choisir EvaM Group ?</h2>
       <div class="features-grid">
@@ -443,6 +469,81 @@ function handleOrder() {
   }
 }
 
+/* --- NOUVELLE SECTION IA SHOWCASE --- */
+.ia-showcase-section {
+  width: 100%;
+  padding: 4rem 2rem;
+  background-color: #fff; /* Fond blanc */
+}
+.ia-showcase-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.ia-showcase-text h2 {
+  font-size: 2.2rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+.ia-showcase-text .section-intro {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+}
+.ia-features-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2.5rem;
+}
+.ia-features-list li {
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+.ia-features-list li i {
+  color: var(--primary); /* Utilise la couleur primaire */
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+.ia-showcase-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+/* Recréer les styles des boutons pour cette section */
+.ia-showcase-section .hero-buttons {
+  animation: none; /* Pas d'animation de fondu ici */
+  opacity: 1;
+  justify-content: flex-start;
+}
+.ia-showcase-section .btn {
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.ia-showcase-section .btn-primary {
+  background-color: var(--primary);
+  color: white;
+  border: 2px solid var(--primary);
+}
+.ia-showcase-section .btn-primary:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
 /* ============================================= */
 /* --- LE RESTE DU CSS EST INCHANGÉ --- */
 /* ============================================= */
@@ -625,6 +726,24 @@ function handleOrder() {
   margin: 0; /* Retire la marge par défaut des <p> */
 }
 @media (max-width: 900px) {
+  /* Ajout de la règle pour .ia-showcase-container */
+  .ia-showcase-container {
+    grid-template-columns: 1fr;
+  }
+  .ia-showcase-image {
+    order: -1; /* Met l'image en premier sur mobile */
+    margin-bottom: 2rem;
+  }
+  .ia-showcase-text {
+    text-align: center;
+  }
+  .ia-showcase-text .hero-buttons {
+    justify-content: center;
+  }
+  .ia-features-list li {
+    justify-content: center;
+  }
+
   .video-grid {
     grid-template-columns: 1fr; /* Passe en une seule colonne */
   }
