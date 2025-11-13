@@ -1,0 +1,31 @@
+/* src/assets/main.css */
+
+:root {
+  --primary: #0021B5;
+  --primary-dark: #001699;
+  --bg-light: #f9fafb;
+  --text-dark: #0021B5;
+  --text-light: #6b7280;
+  --white: #FE66C4;
+  --pink: #ffe6f2;
+  --radius: 16px;
+  --shadow: 0 4px 16px rgba(0,0,0,0.08);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* Vous pouvez ajouter ici d'autres classes globales que vous
+   utiliserez partout, par exemple : */
+
