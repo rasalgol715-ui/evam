@@ -1,33 +1,14 @@
 <script setup>
-// 1. On importe notre composant Header
-import AppHeader from './components/AppHeader.vue'
-
-// 2. On importe notre NOUVEAU composant Footer
-import AppFooter from './components/AppFooter.vue'
-
-// 3. On importe le composant "fenêtre" de Vue Router
+// 1. Header
+import AppHeader from '@/components/AppHeader.vue'
+// 2. Footer
+import AppFooter from '@/components/AppFooter.vue'
+// 3. Router
 import { RouterView } from 'vue-router'
-</script>
-<script setup>
+// 4. Chat IA
 import ChatAgent from '@/components/ChatAgent.vue'
 </script>
 
-<template>
-  <AppHeader />
-
-  <main class="page-content"></main>
-    <RouterView />
-
-  <AppFooter />
-</template>
-
-/* src/App.vue */
-<style scoped>
-.page-content {
-  position: relative; /* Crée un contexte d'empilement */
-  z-index: 1;      /* Force ce contenu à être en dessous du header (qui a z-index: 100) */
-}
-</style>
 <template>
   <AppHeader />
   <RouterView />
@@ -35,4 +16,9 @@ import ChatAgent from '@/components/ChatAgent.vue'
   <ChatAgent />
 </template>
 
-
+<style scoped>
+.page-content {
+  position: relative;
+  z-index: 1;
+}
+</style>

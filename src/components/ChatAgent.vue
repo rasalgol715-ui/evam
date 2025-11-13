@@ -2,7 +2,7 @@
   <div class="agent-wrapper">
     <!-- BULLE -->
     <div class="agent-bubble" @click="open = !open">
-      <img src="/images/bot-avatar.svg" alt="assistant" />
+      <img src="C:\Users\evamg\evam\public\images\bot-avatar.png" alt="assistant" />
     </div>
 
     <!-- FENÊTRE -->
@@ -48,6 +48,7 @@ const typing = ref(false)
 const messages = ref([
   { text: 'Salut 👋 Je suis le prof IA EvaM. Pose-moi n’importe quelle question !', isBot: true }
 ])
+const box = ref(null)   // ← DÉCLARATION MANQUANTE
 
 const systemPrompt =
 `Tu es "Prof-Eva", assistant pédagogique sénégalais, spécialisé en maths, physique, informatique du collège/lycée.
@@ -62,7 +63,9 @@ async function send () {
     const fullPrompt = `${systemPrompt}\nÉlève : ${question.value}\nProf-Eva :`
     const answer = await askLlama(fullPrompt)
     messages.value.push({ text: answer, isBot: true })
-  } catch (e) {
+  }
+  catch (e) {
+    console.error('Chat IA error:', e)
     messages.value.push({ text: 'Désolé, le professeur est momentanément indisponible 😅 Contacte-nous sur WhatsApp.', link: 'https://wa.me/221775632268', linkText: 'WhatsApp' })
   }
   typing.value = false
@@ -75,7 +78,12 @@ async function send () {
 <style scoped>
 .agent-wrapper{position:fixed;bottom:20px;right:20px;z-index:999;font-family:Poppins,sans-serif}
 .agent-bubble{width:60px;height:60px;border-radius:50%;background:#0021B5;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.25)}
-.agent-bubble img{width:32px;height:32px}
+.agent-bubble img {
+  width: 32px;        /* taille icône */
+  height: 32px;
+  object-fit: contain; /* évite déformation */
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.2)); /* légère ombre */
+}
 .agent-panel{width:340px;height:480px;background:#fff;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,.2);display:flex;flex-direction:column;overflow:hidden}
 header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#0021B5;color:#fff;font-weight:600}
 header button{background:none;border:none;color:#fff;font-size:18px;cursor:pointer}
