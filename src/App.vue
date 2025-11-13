@@ -8,6 +8,9 @@ import AppFooter from './components/AppFooter.vue'
 // 3. On importe le composant "fenêtre" de Vue Router
 import { RouterView } from 'vue-router'
 </script>
+<script setup>
+import ChatAgent from '@/components/ChatAgent.vue'
+</script>
 
 <template>
   <AppHeader />
@@ -25,3 +28,11 @@ import { RouterView } from 'vue-router'
   z-index: 1;      /* Force ce contenu à être en dessous du header (qui a z-index: 100) */
 }
 </style>
+<template>
+  <AppHeader />
+  <RouterView />
+  <AppFooter />
+  <ChatAgent />
+</template>
+
+
