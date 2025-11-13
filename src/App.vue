@@ -5,8 +5,6 @@ import AppHeader from '@/components/AppHeader.vue'
 import AppFooter from '@/components/AppFooter.vue'
 // 3. Router
 import { RouterView } from 'vue-router'
-// 4. Chat IA
-import ChatAgent from '@/components/ChatAgent.vue'
 </script>
 
 <template>

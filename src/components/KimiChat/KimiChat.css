@@ -1,0 +1,7 @@
+.kimi-box{max-width:600px;margin:auto;display:flex;flex-direction:column;height:80vh;border:1px solid #ccc;}
+.kimi-msgs{flex:1;overflow-y:auto;padding:1rem;}
+.msg.user{text-align:right;color:#007bff;}
+.msg.assistant{text-align:left;color:#333;}
+.kimi-input{display:flex;border-top:1px solid #ccc;}
+.kimi-input input{flex:1;padding:.5rem;border:none;}
+.kimi-input button{padding:.5rem 1rem;border:none;background:#007bff;color:#fff;cursor:pointer;}
