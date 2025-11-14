@@ -19,6 +19,10 @@ export default defineConfig({
       }
     }
   },
+    // ✅ Permet d'importer des fichiers JSON en mode dev
+  optimizeDeps: {
+    include: ['server/site-content.json']
+  }
   plugins: [
     vue(),
     vueDevTools(),

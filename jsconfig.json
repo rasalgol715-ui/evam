@@ -1,8 +1,12 @@
 {
-  "compilerOptions": {
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "exclude": ["node_modules", "dist"]
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "run-s lint:*",
+    "format": "prettier --write src/",
+    "index-site": "node server/scripts/index-site.js",  // ✅ Cette ligne est correcte
+    "predev": "npm run index-site",  // ✅ Ajoutez ceci pour indexer avant chaque démarrage
+    "prebuild": "npm run index-site"  // ✅ Indexe avant le build aussi
+  }
 }

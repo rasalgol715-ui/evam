@@ -20,7 +20,14 @@ import markdownIt from 'markdown-it'
 import markdownItKatex from 'markdown-it-katex'
 import katex from 'katex'  // ✅ CRITIQUE : Cette ligne est absente chez vous
 import 'katex/dist/katex.min.css'
+// Ajoutez dans <script setup>
+import siteIndex from '../../server/site-content.json'
 
+// Utilisez-le dans le prompt système
+const SYSTEM_PROMPT = `Tu es l'Assistant EvaM. Voici le contenu du site :
+${JSON.stringify(siteIndex, null, 2)}
+
+Réponds en te basant SUR CE CONTENU uniquement.`
 const md = markdownIt({ html: true }).use(markdownItKatex)
 const userInput = ref('')
 const messages = ref([])
