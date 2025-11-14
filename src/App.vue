@@ -1,5 +1,5 @@
 <script setup>
-import KimiChat from './components/KimiChat.vue'
+import ChatAssistant from './components/ChatAssistant.vue'
 import AppHeader from '@/components/AppHeader.vue'
 import AppFooter from '@/components/AppFooter.vue'
 import { RouterView } from 'vue-router'
@@ -9,7 +9,7 @@ import { RouterView } from 'vue-router'
   <AppHeader />
   <RouterView />
   <AppFooter />
-  <KimiChat />
+  <ChatAssistant />
 </template>
 
 <style scoped>

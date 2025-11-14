@@ -6,10 +6,17 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
-  server: { proxy: { "/api": { target: "http://localhost:5000", changeOrigin: true } } },
   server: {
     proxy: {
-      "/api": { target: "http://localhost:5000", changeOrigin: true }
+      "/api": {
+        target: import.meta.env.VITE_API_URL || "http://localhost:5000",
+        changeOrigin: true
+      },
+      "/ollama": {  // Proxy sécurisé pour Ollama
+        target: import.meta.env.VITE_OLLAMA_API_URL,
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/ollama/, '')
+      }
     }
   },
   plugins: [
