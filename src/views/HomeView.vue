@@ -39,8 +39,8 @@
           <div class="ia-showcase-text">
             <h2>Découvrez notre Académie IA</h2>
             <p class="section-intro">
-              L'intelligence Artificielle transforme le monde. Ne restez pas spectateur.
-              Nous formons les étudiants sénégalais aux métiers de demain :
+              L'intelligence Artificielle transforme le monde. Ne restez pas spectateur. Nous
+              formons les étudiants sénégalais aux métiers de demain :
             </p>
             <ul class="ia-features-list">
               <li><i class="fas fa-check-circle"></i> Ingénieur Prompt & IA Générative</li>
@@ -48,11 +48,17 @@
               <li><i class="fas fa-check-circle"></i> Développeur IA / Machine Learning</li>
             </ul>
             <div class="hero-buttons">
-              <RouterLink to="/categories" class="btn btn-primary">Explorer les Parcours IA</RouterLink>
+              <RouterLink to="/categories" class="btn btn-primary"
+                >Explorer les Parcours IA</RouterLink
+              >
             </div>
           </div>
           <div class="ia-showcase-image">
-            <img src="/images/etudiant-en-ligne.png" alt="Étudiant apprenant l'IA en ligne" class="image-fluid">
+            <img
+              src="/images/etudiant-en-ligne.png"
+              alt="Étudiant apprenant l'IA en ligne"
+              class="image-fluid"
+            />
           </div>
         </div>
       </section>
@@ -63,7 +69,9 @@
           <div class="feature-card">
             <i class="fas fa-book-reader"></i>
             <h3>Contenu riche</h3>
-            <p>Des explications claires, des exercices corrigés et des fascicules téléchargeables.</p>
+            <p>
+              Des explications claires, des exercices corrigés et des fascicules téléchargeables.
+            </p>
           </div>
           <div class="feature-card">
             <i class="fas fa-chalkboard-teacher"></i>
@@ -91,17 +99,22 @@
                 title="Vidéo de présentation EvaM Group"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
+                allowfullscreen
+              >
               </iframe>
             </div>
             <div class="animation-grid">
               <div class="animation-card">
-                <img src="/images/math_tle_cover.png" alt="Animation Python" class="image-fluid">
+                <img src="/images/math_tle_cover.png" alt="Animation Python" class="image-fluid" />
                 <h4>Info Terminale : Python</h4>
                 <p>Découvrez les boucles, les fonctions et les structures de données.</p>
               </div>
               <div class="animation-card">
-                <img src="/images/math_1ere_cover.png" alt="Animation Algorithmes" class="image-fluid">
+                <img
+                  src="/images/math_1ere_cover.png"
+                  alt="Animation Algorithmes"
+                  class="image-fluid"
+                />
                 <h4>Info Première : Algorithmes</h4>
                 <p>Comprenez la logique et la structure d'un algorithme efficace.</p>
               </div>
@@ -114,19 +127,27 @@
         <h2>Nouveautés</h2>
         <div class="modules-grid">
           <div class="module-item">
-            <img src="/images/math_tle_cover.png" alt="Module Maths Terminale" class="image-fluid">
+            <img
+              src="/images/math_tle_cover.png"
+              alt="Module Maths Terminale"
+              class="image-fluid"
+            />
             <h3>Maths Terminale : Nombres Complexes</h3>
             <p>Découvrez les nombres complexes et leurs applications géométriques.</p>
-            <RouterLink :to="{ path: '/terminale', hash: '#module-3' }" class="btn btn-small">Voir le module</RouterLink>
+            <RouterLink :to="{ path: '/terminale', hash: '#module-3' }" class="btn btn-small"
+              >Voir le module</RouterLink
+            >
           </div>
           <div class="module-item">
-            <img src="/images/math_1ere_cover.png" alt="Module PC Première" class="image-fluid">
+            <img src="/images/math_1ere_cover.png" alt="Module PC Première" class="image-fluid" />
             <h3>PC Première : Mouvement et Forces</h3>
             <p>Comprenez les lois de Newton et la cinématique des solides.</p>
-            <RouterLink :to="{ path: '/premiere', hash: '#module-5' }" class="btn btn-small">Voir le module</RouterLink>
+            <RouterLink :to="{ path: '/premiere', hash: '#module-5' }" class="btn btn-small"
+              >Voir le module</RouterLink
+            >
           </div>
           <div class="module-item">
-            <img src="/images/pc_tle_cover.png" alt="Module Info Terminale" class="image-fluid">
+            <img src="/images/pc_tle_cover.png" alt="Module Info Terminale" class="image-fluid" />
             <h3>Info Terminale : Programmation Python</h3>
             <p>Initiation à la programmation et aux algorithmes avec Python.</p>
             <RouterLink to="/terminale" class="btn btn-small">Voir le module</RouterLink>
@@ -150,7 +171,11 @@
                 :class="{ active: fascicule.id === fasciculeEnPreview.id }"
                 @click="changerPreview(fascicule)"
               >
-                <img :src="fascicule.coverImg" :alt="'Couverture ' + fascicule.nom" class="image-fluid">
+                <img
+                  :src="fascicule.coverImg"
+                  :alt="'Couverture ' + fascicule.nom"
+                  class="image-fluid"
+                />
                 <h4>{{ fascicule.nom }}</h4>
               </div>
             </div>
@@ -161,7 +186,7 @@
                     :src="fasciculeEnPreview.coverImg"
                     :alt="'Aperçu ' + fasciculeEnPreview.nom"
                     class="preview-cover-img image-fluid"
-                  >
+                  />
                   <div class="preview-text-content">
                     <h3>Extrait : {{ fasciculeEnPreview.nom }}</h3>
                     <div v-html="fasciculeEnPreview.previewHtml"></div>
@@ -180,14 +205,20 @@
         <div class="order-container">
           <h2><i class="fas fa-qrcode"></i> Commander vos Fascicules EvaM</h2>
           <p>
-            Accès direct à la réussite. Remplissez le formulaire ci-dessous
-            pour recevoir vos fascicules.
+            Accès direct à la réussite. Remplissez le formulaire ci-dessous pour recevoir vos
+            fascicules.
           </p>
           <form v-if="!formSubmitted" @submit.prevent="handleOrder" class="order-form">
             <div class="form-grid">
               <div class="form-group">
                 <label for="nom">Nom complet</label>
-                <input type="text" id="nom" v-model="commande.nom" placeholder="Ex: Moussa Diop" required>
+                <input
+                  type="text"
+                  id="nom"
+                  v-model="commande.nom"
+                  placeholder="Ex: Moussa Diop"
+                  required
+                />
               </div>
               <div class="form-group">
                 <label for="classe">Votre Classe</label>
@@ -206,7 +237,13 @@
             </div>
             <div class="form-group">
               <label for="telephone">Numéro de téléphone (WhatsApp)</label>
-              <input type="tel" id="telephone" v-model="commande.telephone" placeholder="Ex: 77 123 45 67" required>
+              <input
+                type="tel"
+                id="telephone"
+                v-model="commande.telephone"
+                placeholder="Ex: 77 123 45 67"
+                required
+              />
             </div>
             <div class="form-group">
               <label>Quels fascicules souhaitez-vous ?</label>
@@ -217,22 +254,20 @@
                     :id="fascicule.id"
                     :value="fascicule.nom"
                     v-model="commande.selection"
-                  >
+                  />
                   <label :for="fascicule.id">
                     {{ fascicule.nom }} <span>({{ fascicule.prix }} FCFA)</span>
                   </label>
                 </div>
               </div>
             </div>
-            <button type="submit" class="btn-submit-order">
-              Passer la commande
-            </button>
+            <button type="submit" class="btn-submit-order">Passer la commande</button>
           </form>
           <div v-if="formSubmitted" class="success-message">
             <h3>Merci pour votre commande !</h3>
             <p>
-              Nous avons bien reçu votre demande. Un agent EvaM vous contactera
-              très prochainement sur le numéro <strong>{{ commande.telephone }}</strong>
+              Nous avons bien reçu votre demande. Un agent EvaM vous contactera très prochainement
+              sur le numéro <strong>{{ commande.telephone }}</strong>
               pour finaliser la livraison.
             </p>
           </div>
@@ -280,7 +315,7 @@ class Particle {
 
 function animate() {
   ctx.clearRect(0, 0, w, h)
-  particlesArray.value.forEach(p => {
+  particlesArray.value.forEach((p) => {
     p.update()
     p.draw()
   })
@@ -288,7 +323,7 @@ function animate() {
 }
 
 function resizeCanvas() {
-  if (!particles.value) return;
+  if (!particles.value) return
   w = particles.value.width = particles.value.offsetWidth
   h = particles.value.height = particles.value.offsetHeight
   particlesArray.value.length = 0
@@ -324,29 +359,29 @@ const listeFascicules = ref([
     nom: 'Maths Terminale',
     prix: 5000,
     coverImg: '/images/math_tle_cover.png',
-    previewHtml: '<h4>Chapitre 1 : Les Limites et la Continuité</h4><p>...'
+    previewHtml: '<h4>Chapitre 1 : Les Limites et la Continuité</h4><p>...',
   },
   {
     id: 'pc_tle',
     nom: 'PC Terminale',
     prix: 5000,
     coverImg: '/images/pc_tle_cover.png',
-    previewHtml: '<h4>Chapitre 1 : La Mécanique Newtonienne</h4><p>...'
+    previewHtml: '<h4>Chapitre 1 : La Mécanique Newtonienne</h4><p>...',
   },
   {
     id: 'math_1ere',
     nom: 'Maths Première',
     prix: 4500,
     coverImg: '/images/math_1ere_cover.jpg',
-    previewHtml: '<h4>Chapitre 1 : Le Second Degré</h4><p>...'
+    previewHtml: '<h4>Chapitre 1 : Le Second Degré</h4><p>...',
   },
   {
     id: 'math_2nde',
     nom: 'Maths Seconde',
     prix: 4000,
     coverImg: '/images/pc_tle_cover.png', // Image placeholder
-    previewHtml: '<h4>Chapitre 1 : Les Ensembles de Nombres</h4><p>...'
-  }
+    previewHtml: '<h4>Chapitre 1 : Les Ensembles de Nombres</h4><p>...',
+  },
 ])
 
 const fasciculeEnPreview = ref(listeFascicules.value[0])
@@ -358,7 +393,7 @@ const commande = ref({
   nom: '',
   classe: '',
   telephone: '',
-  selection: []
+  selection: [],
 })
 const formSubmitted = ref(false)
 
@@ -367,20 +402,21 @@ function handleOrder() {
     nom: commande.value.nom,
     classe: commande.value.classe,
     telephone: commande.value.telephone,
-    selection: commande.value.selection.join(', ')
+    selection: commande.value.selection.join(', '),
   }
 
-  emailjs.send(
-    EMAILJS_SERVICE_ID,         // <-- CORRIGÉ
-    EMAILJS_TEMPLATE_COMMANDE,  // <-- CORRIGÉ
-    templateParams,
-    EMAILJS_PUBLIC_KEY
-  )
+  emailjs
+    .send(
+      EMAILJS_SERVICE_ID, // <-- CORRIGÉ
+      EMAILJS_TEMPLATE_COMMANDE, // <-- CORRIGÉ
+      templateParams,
+      EMAILJS_PUBLIC_KEY,
+    )
     .then(() => {
       console.log('Commande envoyée !')
       formSubmitted.value = true
     })
-    .catch(err => {
+    .catch((err) => {
       console.error('Échec...', err)
       alert("Erreur lors de l'envoi de la commande.")
     })
@@ -390,9 +426,9 @@ function handleOrder() {
 <style>
 /* Variables CSS Globales (depuis votre main.css) */
 :root {
-  --primary: #0021B5;
+  --primary: #0021b5;
   --primary-dark: #001699;
-  --pink: #FE66C4;
+  --pink: #fe66c4;
   --pink-light: #ffe6f2; /* J'ai gardé votre --pink de main.css */
   --bg-dark: #0b0f19;
   --bg-dark-light: #1f2937;
@@ -401,13 +437,13 @@ function handleOrder() {
   --text-dark: #111827;
   --text-light: #6b7280;
   --text-white: #f9fafb;
-  --shadow: 0 4px 16px rgba(0,0,0,0.1);
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   --radius: 12px;
   --transition: all 0.3s ease;
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -463,23 +499,86 @@ a {
 }
 
 /* --- AMÉLIORATIONS DEMANDÉES (plus de formules, plus dispersées) --- */
-.formula:nth-child(1) { top: 5%; left: -20%; animation-duration: 28s; animation-delay: 0s; }
-.formula:nth-child(2) { top: 15%; left: -10%; animation-duration: 22s; animation-delay: 2s; }
-.formula:nth-child(3) { top: 25%; left: -30%; animation-duration: 30s; animation-delay: 4s; }
-.formula:nth-child(4) { top: 35%; left: -5%; animation-duration: 26s; animation-delay: 6s; }
-.formula:nth-child(5) { top: 45%; left: -25%; animation-duration: 20s; animation-delay: 8s; }
-.formula:nth-child(6) { top: 55%; left: -15%; animation-duration: 32s; animation-delay: 10s; }
-.formula:nth-child(7) { top: 65%; left: -40%; animation-duration: 24s; animation-delay: 12s; }
-.formula:nth-child(8) { top: 75%; left: -8%; animation-duration: 29s; animation-delay: 14s; }
-.formula:nth-child(9) { top: 85%; left: -28%; animation-duration: 21s; animation-delay: 16s; }
-.formula:nth-child(10) { top: 90%; left: -18%; animation-duration: 35s; animation-delay: 1s; }
-.formula:nth-child(11) { top: 20%; left: -45%; animation-duration: 27s; animation-delay: 18s; }
-.formula:nth-child(12) { top: 60%; left: -22%; animation-duration: 23s; animation-delay: 3s; }
-
+.formula:nth-child(1) {
+  top: 5%;
+  left: -20%;
+  animation-duration: 28s;
+  animation-delay: 0s;
+}
+.formula:nth-child(2) {
+  top: 15%;
+  left: -10%;
+  animation-duration: 22s;
+  animation-delay: 2s;
+}
+.formula:nth-child(3) {
+  top: 25%;
+  left: -30%;
+  animation-duration: 30s;
+  animation-delay: 4s;
+}
+.formula:nth-child(4) {
+  top: 35%;
+  left: -5%;
+  animation-duration: 26s;
+  animation-delay: 6s;
+}
+.formula:nth-child(5) {
+  top: 45%;
+  left: -25%;
+  animation-duration: 20s;
+  animation-delay: 8s;
+}
+.formula:nth-child(6) {
+  top: 55%;
+  left: -15%;
+  animation-duration: 32s;
+  animation-delay: 10s;
+}
+.formula:nth-child(7) {
+  top: 65%;
+  left: -40%;
+  animation-duration: 24s;
+  animation-delay: 12s;
+}
+.formula:nth-child(8) {
+  top: 75%;
+  left: -8%;
+  animation-duration: 29s;
+  animation-delay: 14s;
+}
+.formula:nth-child(9) {
+  top: 85%;
+  left: -28%;
+  animation-duration: 21s;
+  animation-delay: 16s;
+}
+.formula:nth-child(10) {
+  top: 90%;
+  left: -18%;
+  animation-duration: 35s;
+  animation-delay: 1s;
+}
+.formula:nth-child(11) {
+  top: 20%;
+  left: -45%;
+  animation-duration: 27s;
+  animation-delay: 18s;
+}
+.formula:nth-child(12) {
+  top: 60%;
+  left: -22%;
+  animation-duration: 23s;
+  animation-delay: 3s;
+}
 
 @keyframes scroll {
-  from { transform: translateX(100vw); }
-  to   { transform: translateX(-100%); }
+  from {
+    transform: translateX(100vw);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }
 
 .content {
@@ -523,16 +622,27 @@ a {
   white-space: nowrap;
   overflow: hidden;
   border-right: 4px solid var(--pink);
-  animation: typing 2.5s steps(10, end), blink-caret 0.75s step-end infinite;
+  animation:
+    typing 2.5s steps(10, end),
+    blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 @keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: var(--pink); }
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--pink);
+  }
 }
 
 .hero-subheadline {
@@ -563,8 +673,14 @@ a {
   opacity: 0;
 }
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .btn {
@@ -606,7 +722,9 @@ a {
 @media (max-width: 768px) {
   .typing-container h1 {
     font-size: 2.5rem;
-    animation: typing 2.5s steps(10, end), blink-caret 0.75s step-end infinite;
+    animation:
+      typing 2.5s steps(10, end),
+      blink-caret 0.75s step-end infinite;
   }
   .hero-subheadline {
     font-size: 1.2rem;
@@ -656,7 +774,8 @@ a {
   background-color: var(--bg-white);
   color: var(--text-dark);
 }
-.preview-section, .order-section {
+.preview-section,
+.order-section {
   background-color: var(--pink-light);
   color: var(--text-dark);
 }
@@ -817,7 +936,7 @@ a {
   background-color: var(--bg-dark-light); /* Fond sombre pour les cartes sur fond sombre */
   padding: 1.5rem;
   border-radius: var(--radius);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   text-align: left;
   transition: var(--transition);
 }
@@ -915,7 +1034,7 @@ a {
     grid-template-columns: 1fr;
   }
   .video-main {
-     margin-bottom: 2rem;
+    margin-bottom: 2rem;
   }
   .animation-grid {
     flex-direction: row;
@@ -969,7 +1088,7 @@ a {
   height: 70px;
   object-fit: cover;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .fascicule-selector-item h4 {
   font-size: 1rem;
@@ -1077,7 +1196,6 @@ a {
   }
 }
 
-
 /* ---------- COMMANDE FASCICULES ---------- */
 .order-section {
   padding: 4rem 2rem;
@@ -1128,8 +1246,8 @@ a {
   color: var(--text-dark);
   margin-bottom: 0.5rem;
 }
-.form-group input[type="text"],
-.form-group input[type="tel"],
+.form-group input[type='text'],
+.form-group input[type='tel'],
 .form-group select {
   padding: 12px 15px;
   font-size: 1rem;
@@ -1155,7 +1273,7 @@ a {
 .fascicule-options .option:hover {
   background-color: #e0f7fa;
 }
-.fascicule-options input[type="checkbox"] {
+.fascicule-options input[type='checkbox'] {
   width: 1.3em;
   height: 1.3em;
   margin-right: 12px;
