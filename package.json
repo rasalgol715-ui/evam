@@ -14,7 +14,9 @@
     "lint:eslint": "eslint . --fix --cache",
     "lint": "run-s lint:*",
     "format": "prettier --write src/",
-    "index-site": "node server/scripts/index-site.js"
+    "index-site": "node server/scripts/index-site.js",
+    "predev": "npm run index-site",
+    "prebuild": "npm run index-site"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
